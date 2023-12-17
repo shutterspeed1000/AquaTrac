@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "cd server $$ nodemon server.js"
+    "dev": "concurrently \"nodemon server/server.js\" \"cd client && npm run dev\"",
+    "install": "cd server && npm i && cd ../client && npm i",
+    "build": "cd client && npm run build"
   },
   "repository": {
     "type": "git",
@@ -16,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/shutterspeed1000/AquaTrac/issues"
   },
-  "homepage": "https://github.com/shutterspeed1000/AquaTrac#readme"
+  "homepage": "https://github.com/shutterspeed1000/AquaTrac#readme",
+  "dependencies": {
+    "concurrently": "^8.2.2",
+    "dotenv": "^16.3.1"
+  }
 }
